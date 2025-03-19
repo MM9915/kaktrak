@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <title>KakTrak - Health-out your gut</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+    <body>
+    <nav>
+        <div class="navbar">
+            <a href="index.html">
+                <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                <span class="text"></span>
+            </a>
+            <a href="stats.html">
+                <ion-icon name="stats-chart-outline"></ion-icon>
+            </a>
+            
+          </div>
+        <div>
+    
+    </nav>
+    <main>
+        <div id="logo">
+            <img src="Image copy.png" alt="" width="20%" >
+        </div>
+        <div class="buttons">
+            <button type="button" onclick="openPopup()" >
+                💩
+            </button>
+        </div>
+        <div class="buttons">
+            <a href="notes.html" >📝</a>
+        </div>
+        <div class="quote">
+            <span id="quotetext"><p>Sometimes, music is like poop. It just has to come out.</p></span>
+            <p>– Mark Salling –</p>
+        </div>
+
+
+        <div class="popup" id="popup">
+            <a href="#" id="close" onclick="closePopup()">X</a>
+            <form method="post" action="https://script.google.com/macros/s/AKfycbzS1PWcWDgxPifCwy9IKJzlrh1xyIOFG0PYT5DeSCEzQdz_80_pMVVBTTzIqDW8ombreA/exec" name="contact-form" id="poopform">
+                <div>
+                    <h4>Date&time of poop:</h4>
+                    <input type="datetime-local" name="date">
+
+                </div>
+                <div class="qualityinputs">
+                    <h4>Quality:</h4>
+                    <div>
+                        <input type="radio" class="qualitychooser" name="quality" value="1">
+
+                        <label for="quality" class="qualitychoosertext">Loose</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="qualitychooser" name="quality" value="2">
+
+                        <label for="quality" class="qualitychoosertext">OK</label>
+                    </div>
+                    <div>
+                        <input type="radio" class="qualitychooser" name="quality" value="3">
+
+                        <label for="quality" class="qualitychoosertext">Hard</label>
+                    </div>
+                </div>
+                <div class="qualityinputs">
+                    <label for="pain"><h4>
+                        Any pain?
+                    </h4></label>
+                    <select name="pain" id="pain">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+
+                    </select>
+                </div>
+                <input type="submit" value="Submit" id="submit" onclick="closePopup(); openSubmit()">
+                  </form>
+        
+            
+        </div>
+        <!--
+        <div class="submitted" id="submitted">
+            <h2>✅</h2>
+            <p>Poop submitted!</p>
+            <button onclick="closeSubmit()">OK</button>
+        </div>-->
+
+
+    </main>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="script.js"></script>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzS1PWcWDgxPifCwy9IKJzlrh1xyIOFG0PYT5DeSCEzQdz_80_pMVVBTTzIqDW8ombreA/exec'
+          const form = document.forms['contact-form']
+          
+          form.addEventListener('submit', e => {
+            
+            e.preventDefault()
+            
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => alert(
+                "✅ Poop submitted, nice!"
+            ))
+            .then(() => { window.location.reload(); })
+            .catch(error => console.error('Error!', error.message))
+          })
+      </script>
+</body>
+</html>
