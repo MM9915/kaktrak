@@ -181,36 +181,3 @@ checkboxes.forEach(checkbox => {
 
 
 
-
-/*const scriptURL = 'https://script.google.com/macros/s/AKfycbwnqcFDD7kDFCddHDcyy5G65aQWazodfpGC0iFJvrxT1YSjzQhg3fiIHjCwOM4qd90XGw/exec';
-
-const form = document.forms['poopform'];
-
-form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    try {
-        const response = await fetch(scriptURL, {
-            method: 'POST',
-            body: new FormData(form),
-        });
-
-        const text = await response.text();
-        console.log("Server response:", text);
-
-        if (response.ok) {
-            alert("Thank you! Form is submitted");
-            window.location.reload();
-        } else {
-            alert("Error: " + text);
-        }
-    } catch (error) {
-        console.error('Fetch Error:', error);
-        alert("Submission failed. Check console for details.");
-    }
-});
-
-
-
-
-*/
