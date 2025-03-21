@@ -1,17 +1,50 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --base-color: white;
+  --secondary-color: #e8e9ed;
+  --text-color: #111528;
+  --secondary-text: #232738;
+  --main-color: #3a435d;
+  --submit: #5ba5ff;
+  --notebutton: linear-gradient(to bottom, rgb(207, 184, 188), rgb(189, 169, 169));
+  --notebuttonborder: darksalmon;
+  --note: linear-gradient(to left, wheat 90%, rgb(252, 239, 214));
+}
+
 body {
-    background: linear-gradient(to bottom, pink, rgb(255, 230, 230));
+    background-color: var(--base-color);
     text-align: center;
     font-family: sans-serif;
     margin: 10px;
     padding: 0;
     background-repeat: no-repeat;
     height: 100%;
+    color: var(--text-color);
+}
+
+.darkmode {
+  --base-color: #070b1d;
+  --secondary-color: #3a435d;
+  --text-color: #e8e9ed;
+  --secondary-text: #a4a5b8;
+  --main-color: #3a435d;
+  --submit: #5ba5ff;
+  --notebutton: linear-gradient(to bottom, rgb(135, 121, 123), rgb(110, 98, 98));
+  --notebuttonborder: rgb(153, 91, 71);
+  --note: linear-gradient(to left, rgb(158, 139, 105) 90%, rgb(169, 152, 122));
 }
 
 
 /* Place the navbar at the bottom of the page, and make it stick */
 .navbar {
-
+  z-index: 4;
     overflow: hidden;
     position: fixed;
     display: flex;
@@ -24,7 +57,7 @@ body {
   
   /* Style the links inside the navigation bar */
   .navbar a {
-    color: #2c2c2c;
+    color: var(--text-color);
     text-align: center;
     padding: 1% 10%;
     text-decoration: none;
@@ -35,16 +68,15 @@ body {
   }
   
   /* Change the color of links on hover */
-  .navbar a:hover {
-    background-color: rgb(193, 193, 193);
-    color: black;
-  }
-  
+.navbar a:hover, .navbar a:active {
+  background-color: var(--main-color);
+  color: var(--base-color);
+}
+.navbar a:active {
+  opacity: 0.75;
+}
+
   /* Add a color to the active/current link */
-  .navbar a.active {
-    background-color: #a9a9a9;
-    color: white;
-  }
 
 main {
   display: flex;
@@ -55,48 +87,57 @@ main {
   align-items: center;
   width: 100%;
   margin: 0;
-  height: 100vh;
+  height: 100%;
   overflow: scroll;
 
 }
 
 
 #logo {
+  display: flex;
   width: 100%;
-  height: 200px;
+  height: 250px;
   align-items: center;
-  align-content: center;
+  
 }
-#logo img {
-  width: 150px;
+#logosvg {
+  width: 200px;
+  margin: auto;
+  fill: var(--text-color);
 
 }
 
 .buttons {
   width: 100%;
   border-radius: 10px;
-  padding: 10px;
   border-style: none;
   margin: 0 auto;
   transition: transform 0.5s ease;
 }
-.buttons button, .buttons a {
+.buttons a {
 border-width: 0;
 text-decoration: none;
-background: lightgray;
+width: 60%;
+display: flex;
 font-size: 100px;
-padding: 10px 60px;
+padding: 0px 30px;
 height: 150px;
 border-radius: 10px;
 text-align: center;
-margin: 20px auto 0 auto;
+margin: auto;
 color: rgb(11, 11, 80);
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+background: var(--secondary-color);
+box-shadow: 0 4px 8px var(--text-color);
 transition: transform 0.5s ease;
 align-content: center;
 align-items: center;
 }
 
+#svg{
+  width: 100px;
+  margin: auto;
+  fill: var(--text-color);
+}
 
 .buttons:active {
   opacity: 0.8;
@@ -106,10 +147,11 @@ align-items: center;
 
 .quote {
   align-items: center;
-  margin: auto;
+  margin: auto 10px 40px 10px;
 }
 #quotetext {
   font-style: italic;
+  margin: 0 10px;
 }
 
 .popup {
@@ -119,7 +161,7 @@ align-items: center;
   flex-direction: row;
   top: 5%;
   left: 5%;
-  background-color: whitesmoke;
+  background-color: var(--secondary-color);
   border-radius: 25px;
   height: 90%;
   width: 90%;
@@ -141,90 +183,35 @@ align-items: center;
   top: 1%;
   right: 3%;
   text-decoration: none;
-  color: black;
+  color: var(--text-color);
   font-weight: bold;
   font-size: 10px;
   padding: 10px;
 }
 
-
-
-
 #submit {
   margin-top: auto;
   height: 50px;
-  width: 50%;
-}
-
-#submitbutton {
-  width: 100px;
-  height: 35px;
-}
-
-.submitted {
-  position: fixed;
-  top: 40%;
-  left: 15%;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  margin: 0 auto;
-  background-color: whitesmoke;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  visibility: hidden;
-  transform: translate(0, 0) scale(0.1);
-  transition: transform 0.4s ease;
-}
-.open-submit {
-  visibility: visible;
-  transform: translate(0, 0) scale(1);
-
-}
-
-#submitted button {
-  width: 40%;
-  margin: auto auto 20px auto;
   border: none;
-  background-color: lightgrey;
-  border-radius: 10px;
-  height: 35px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-
-}
-#submitted h2 {
-  margin-bottom: 0;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  border-radius: 5px;
+  width: 50%;
+  background-color: var(--submit);
+  box-shadow: 0 2px 8px #111528;
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: bold;
 }
 
 h2 {
-  color: black;
+  color: var(--text-color);
   margin: 20px 0 15px 0;
 }
 
 .todo-app {
-  background: linear-gradient(to left, wheat 90%, rgb(252, 239, 214));
+  background: var(--note);
   width: 100%;
   height: 350px;
-  border: 5px solid darksalmon;
+  border: 5px solid var(--notebuttonborder);
   border-radius: 8px;
   padding: 15px;
   position: relative;
@@ -237,9 +224,10 @@ h2 {
   cursor: pointer;
   width: 100px;
   margin: 10px;
-  color: black;
-  background: linear-gradient(to bottom, rgb(207, 184, 188), rgb(189, 169, 169));
-  border: 2px solid darksalmon;
+  color: var(--text-color);
+  background: var(--notebutton);
+  box-shadow: 0 2px 4px #111528;
+  border: 2px solid var(--notebuttonborder);
   height: 35px;
   border-radius: 5px;
 }
@@ -272,8 +260,7 @@ h2 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: whitesmoke;
-  border: 6px solid darkgray;
+  background-color: var(--secondary-color);
   border-radius: 5px;
   padding: 15px;
   width: 90%;
@@ -375,10 +362,11 @@ h2 {
   justify-content: center;
   width: 100%;
   gap: 10px;
+  margin-bottom: 35px;
 }
 
 .statistic {
-  border: 2px solid black;
+  border: 2px solid var(--main-color);
   border-radius: 5px;
   width: 100%;
   height: 300px;
@@ -386,7 +374,6 @@ h2 {
 
 form {
   text-align: left;
-  margin-bottom: 60px;
 }
 
 form h3 {
@@ -399,11 +386,11 @@ form h3 {
 
 
 #poopform {
+  margin-top: 35px;
   height: 90%;
   width: 100%;
-  margin: 30px 10px 10px 10px;
   display: flex;
-  gap: 70px;
+  gap: 40px;
   flex-direction: column;
   align-items: center;
   align-content: space-evenly;
@@ -434,4 +421,44 @@ h4 {
   width: 100%;
   height: 30px;
   font-size: 20px;
+}
+#fodmapselector {
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+}
+
+#fodmaps{
+  margin-bottom: 45px;
+}
+
+.theme {
+  height: 50px;
+  width: 50px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  border: none;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.theme svg {
+  fill: var(--text-color);
+  margin: auto;
+}
+
+.theme svg:last-child {
+  display: none;
+}
+
+.darkmode .theme svg:first-child {
+  display: none;
+}
+.darkmode .theme svg:last-child {
+  display: block;
 }
