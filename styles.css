@@ -178,26 +178,7 @@ align-items: center;
   transform: translate(0, 0) scale(1);
 }
 
-.open-notes {
-  visibility: visible !important;
-  transform: translate(0, 0) scale(1) !important;
-}
 
-.notes-popup {
-  border-radius: 35px;
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  background-color: var(--secondary-color);
-  height: 100%;
-  width: 100%;
-  overflow: scroll;
-  flex-wrap: wrap;
-  z-index: 56;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-
-  margin: 45px 10px 60px 10px;
-}
 
 #notebook {
   margin: 17px 10px;
@@ -283,18 +264,21 @@ h2 {
 
 .task-form {
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: var(--secondary-color);
   border-radius: 5px;
   padding: 15px;
-  width: 90%;
-  height: 120%;
+  width: 95%;
+  height: 90%;
   flex-direction: column;
   justify-content: flex-start;
   overflow: auto;
+  border: 5px solid var(--notebuttonborder);
+
+  z-index: 5;
 }
 
 .task-form-header {
