@@ -17,6 +17,20 @@
 
 
 
+const notes = document.getElementById("notes-popup");
+  
+function openNotes() {
+  notes.classList.add("open-notes")
+}
+function closeNotes() {
+  notes.classList.remove("open-notes")
+}
+
+
+ 
+
+
+
 const taskForm = document.getElementById("task-form");
 const confirmCloseDialog = document.getElementById("confirm-close-dialog");
 const openTaskFormBtn = document.getElementById("open-task-form-btn");
