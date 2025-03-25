@@ -17,15 +17,6 @@
 
 
 
-const notes = document.getElementById("notes-popup");
-  
-function openNotes() {
-  notes.classList.add("open-notes")
-}
-function closeNotes() {
-  notes.classList.remove("open-notes")
-}
-
 
  
 
@@ -191,7 +182,8 @@ checkboxes.forEach(checkbox => {
 
 
 
-
-
+window.addEventListener('load', () => {
+  document.querySelector('.loader-container').style.display ="none";
+})
 
 
