@@ -473,3 +473,32 @@ h4 {
 .darkmode .theme svg:last-child {
   display: block;
 }
+
+.loader-container {
+  background-color: var(--base-color);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  z-index: 999;
+  margin: -10px;
+}
+
+.loader {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #000 #0000;
+  animation: l1 1s infinite;
+  z-index: 9999;
+  margin: auto;
+}
+
+.loaderhidden {
+  display: none;
+}
+
+@keyframes l1 {to{transform: rotate(.5turn)}}
