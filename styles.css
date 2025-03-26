@@ -45,28 +45,30 @@ body {
 /* Place the navbar at the bottom of the page, and make it stick */
 .navbar {
   z-index: 4;
-    overflow: hidden;
-    position: fixed;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    align-content: space-evenly;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  /* Style the links inside the navigation bar */
-  .navbar a {
-    color: var(--text-color);
-    text-align: center;
-    padding: 1% 10%;
-    text-decoration: none;
-    font-size: 25px;
-    align-items: center;
-    align-content: space-evenly; 
-    margin: 0 auto;
-  }
-  
+  overflow: hidden;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-evenly;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  color: var(--text-color);
+  text-align: center;
+  padding: 1%;
+  width: 50%;
+  text-decoration: none;
+  font-size: 25px;
+  align-items: center;
+  align-content: space-evenly; 
+  margin: 0 auto;
+  background-color: var(--base-color);
+}
+
   /* Change the color of links on hover */
 .navbar a:hover, .navbar a:active {
   background-color: var(--main-color);
@@ -74,6 +76,12 @@ body {
 }
 .navbar a:active {
   opacity: 0.75;
+}
+
+.navicon {
+  margin: auto;
+  fill: var(--text-color);
+  width: 30px;
 }
 
   /* Add a color to the active/current link */
