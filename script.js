@@ -187,16 +187,26 @@ window.addEventListener('load', () => {
 })
 
 
-// Ensure links in the standalone iOS app open smoothly
-if (window.navigator.standalone) { // Only iOS standalone mode
-  document.querySelectorAll('a[href]').forEach(link => {
-    const href = link.getAttribute('href');
-    // Only handle internal links
-    if (href && !href.startsWith('http') && !link.hasAttribute('target')) {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        window.location.href = href;
-      });
-    }
-  });
-}
+document.addEventListener('DOMContentLoaded', () => {
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+
+  if (isStandalone) {
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
+
+      // Skip external links, anchors, or links with target
+      if (
+        href &&
+        !href.startsWith('http') &&
+        !href.startsWith('#') &&
+        !link.hasAttribute('target')
+      ) {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          // Navigate within the app without leaving standalone mode
+          window.location.assign(href);
+        });
+      }
+    });
+  }
+});
