@@ -187,3 +187,16 @@ window.addEventListener('load', () => {
 })
 
 
+// Ensure links in the standalone iOS app open smoothly
+if (window.navigator.standalone) { // Only iOS standalone mode
+  document.querySelectorAll('a[href]').forEach(link => {
+    const href = link.getAttribute('href');
+    // Only handle internal links
+    if (href && !href.startsWith('http') && !link.hasAttribute('target')) {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        window.location.href = href;
+      });
+    }
+  });
+}
