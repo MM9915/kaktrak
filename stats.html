@@ -34,7 +34,7 @@
    <script>   /* Google sheet dynamic data */
 
 function drowChartUsingSheet(){
-    var sheetUrl = 'https://docs.google.com/spreadsheets/d/1w-myYITTcVtT4nFD1ZfZY6rWzEBWVSqALz_zI6m6yyw/edit?gid=33840059#gid=33840059';
+    var sheetUrl = 'https://docs.google.com/spreadsheets/d/1w-myYITTcVtT4nFD1ZfZY6rWzEBWVSqALz_zI6m6yyw/gviz/tq?sheet=Sheet1';
     var opts = {sendMethod: 'auto'};
     var query = new google.visualization.Query(sheetUrl,opts);
     query.send(handleQueryResponse);
@@ -92,5 +92,10 @@ function handleQueryResponse(response) {
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script src="script.js"></script>
+    <script>
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drowChartUsingSheet);
+    </script>
+
 </body>
 </html>
